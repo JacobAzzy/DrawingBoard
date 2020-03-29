@@ -1,4 +1,4 @@
-//global variables dependent on main 
+//global variables dependent on main
 //setup
 //draw
 //additionalHTMLFunctions
@@ -6,43 +6,24 @@
 eraser = false;
 pencil = false;
 pencilColor = 0;
-eraserColor = 255
-
-//DOM
-
-var pencilVar = document.getElementById('pencil');
-pencilVar.addEventListener("click", pencilPressed);
-
-var eraserVar = document.getElementById('eraser');
-eraserVar.addEventListener("click", eraserPressed);
-
-function pencilPressed(){
-	pencil = true;
-	eraser = false;
-
-}
-
-function eraserPressed(){
-	eraser = true;
-	pencil = false;
-
-}
-
-
+backgroundColor = 255;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  background(0);
+  background(backgroundColor, backgroundColor, backgroundColor);
 }
 
 function draw() {
  
-  if (pencil && mouseIsPressed ){
-  	 stroke(pencilColor, pencilColor, pencilColor);
+  if (pencil && mouseIsPressed)
+  {
+    stroke(pencilColor, pencilColor, pencilColor);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
-  if(eraser && mouseIsPressed){
-  	stroke(eraserColor, eraserColor, eraserColor);
+    
+  if (eraser && mouseIsPressed)
+  {
+  	stroke(backgroundColor, backgroundColor, backgroundColor);
   	line(mouseX, mouseY, pmouseX, pmouseY);
   }
 }
