@@ -14,12 +14,7 @@ let toolbox = []
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   background(backgroundColor, backgroundColor, backgroundColor);
-  
-  objectPencil = new Pencil();
-  objectEraser = new Eraser();
   currentTool = new Tools();
-  objectDeselect = new Deselect();
-
 }
 
 function draw() {
