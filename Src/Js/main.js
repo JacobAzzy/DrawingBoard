@@ -1,6 +1,5 @@
 
-// eraser = false;
-// pencil = false;
+//Essential variables
 pencilColor = 0;
 backgroundColor = 255;
 var objectPencil ;
