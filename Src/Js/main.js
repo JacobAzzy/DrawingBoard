@@ -1,30 +1,31 @@
-//global variables dependent on main
-//setup
-//draw
-//additionalHTMLFunctions
 
-eraser = false;
-pencil = false;
+// eraser = false;
+// pencil = false;
 pencilColor = 0;
 backgroundColor = 255;
+var objectPencil ;
+var objectEraser ;
+var objectDeselect ;
+var currentTool  ;
+let toolbox = []
+
+
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   background(backgroundColor, backgroundColor, backgroundColor);
+  
+  objectPencil = new Pencil();
+  objectEraser = new Eraser();
+  currentTool = new Tools();
+  objectDeselect = new Deselect();
+
 }
 
 function draw() {
- 
-  if (pencil && mouseIsPressed)
+  if (mouseIsPressed)
   {
-    stroke(pencilColor, pencilColor, pencilColor);
-    line(mouseX, mouseY, pmouseX, pmouseY);
-  }
-    
-  if (eraser && mouseIsPressed)
-  {
-  	stroke(backgroundColor, backgroundColor, backgroundColor);
-  	line(mouseX, mouseY, pmouseX, pmouseY);
+    currentTool.draw()
   }
 }
 

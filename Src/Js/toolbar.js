@@ -1,41 +1,90 @@
-// parent class 
-//	- opacity
-//	- shape
-//	- size
+function setupObjects(){
+// work in progress
 
-// Child class
-// Pencil 
-//	- Constructor
-//	- extras
-// Eraser 
-//	- Constructor
-//	- extras
-
-//DOM
-
-var pencilVar = document.getElementById('pencil');
-pencilVar.addEventListener("click", pencilPressed);
-
-var eraserVar = document.getElementById('eraser');
-eraserVar.addEventListener("click", eraserPressed);
-
-function pencilPressed(){
-	// Mouse Hover 
-	// text to show to which tool is getting selected
-
-
-    pencil = true;
-    eraser = false;
-    document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=131115'), auto;";
 }
 
-function eraserPressed(){
+function selectTool(toolName){
 
-	// Mouse Hover 
-	// text to show to which tool is getting selected
+    
+    if(toolName == "pencil"){
+        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=131115'), auto;";
+        currentTool = objectPencil;
+    }else if(toolName=="eraser"){
+        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=72976'), auto;";
+        currentTool = objectEraser;
+    }else if(toolName=="deselect"){
+        currentTool = objectEraser;
+    }
 
-	
-    eraser = true;
-    pencil = false;
-    document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=72976'), auto;";
 }
+
+
+class Tools{
+
+    Constructor(){
+        this.active = false;
+        
+    }
+
+    draw(){
+        line(mouseX, mouseY, pmouseX, pmouseY);
+
+    }
+
+}
+
+class Pencil extends Tools{
+    Constructor(){
+        Super();
+        this.active = true
+
+    }
+    draw(){
+        
+        stroke(pencilColor, pencilColor, pencilColor);
+        super.draw();
+        
+
+    }
+}
+
+class Eraser extends Tools{
+    Constructor(){
+        Super();
+        this.active = true;
+    }
+    draw(){
+        stroke(backgroundColor, backgroundColor, backgroundColor);
+        super.draw();
+       
+    }
+    
+}
+
+class Deselect extends Tools{
+    Constructor(){
+        Super();
+        this.active = true;
+    }
+    draw(){
+    // draws nothing
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
