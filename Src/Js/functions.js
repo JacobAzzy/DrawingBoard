@@ -1,4 +1,4 @@
-var deselectVar = document.getElementById('deselect');
+/*var deselectVar = document.getElementById('deselect');
 deselectVar.addEventListener("click", deselectPressed);
 
 function deselectPressed()
@@ -7,4 +7,14 @@ function deselectPressed()
     pencil = false;
     eraser = false;
     document.body.style.cursor = "no-drop";
+}
+*/
+
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    currentTool.addStrokeSize();
+  } else if (keyCode === DOWN_ARROW) {
+    currentTool.reduceStrokeSize();
+  }
+  return false; // prevent default
 }

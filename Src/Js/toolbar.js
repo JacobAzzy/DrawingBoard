@@ -37,8 +37,21 @@ class Tools{
     }
 
     draw(){
+        
         line(mouseX, mouseY, pmouseX, pmouseY);
+        strokeWeight(defaultStroke);
+        strokeCap(ROUND);
 
+    }
+    addStrokeSize(){
+        defaultStroke += 3;
+       // circle(mouseX, mouseY, defaultStroke);
+
+
+    }
+    reduceStrokeSize(){
+        defaultStroke -= 3;
+        //circle(mouseX, mouseY, defaultStroke);
     }
 
 }
