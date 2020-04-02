@@ -7,10 +7,8 @@ var objectPencil ;
 var objectEraser ;
 var objectDeselect ;
 var currentTool  ;
-let toolbox = []
-
+let toolbox = [];
 defaultStroke = 5;
-
 
 
 function setup() {
@@ -20,15 +18,10 @@ function setup() {
 }
 
 function draw() {
-
   if (mouseIsPressed)
   {
     currentTool.draw()
-
   }
- 
-
-
 }
 
 
