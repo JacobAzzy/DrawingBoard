@@ -27,10 +27,11 @@ function selectTool(toolName){
     }
     
     else if(toolName=="reset"){
-        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=1084'), auto;";
-        objectReset = new Reset();
-        currentTool = objectReset;
-        freeOtherObjects(objectReset);
+        clear();
+        // document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=1084'), auto;";
+        // objectReset = new Reset();
+        // currentTool = objectReset;
+        // freeOtherObjects(objectReset);
     }
 }
 
@@ -92,15 +93,15 @@ class Deselect extends Tools{
     
 }
 
-class Reset extends Tools{
-    Constructor(){
-        Super();
-        this.active = true;
-    }
-    draw(){
-        clear();
-    }
-}
+// class Reset extends Tools{
+//     Constructor(){
+//         Super();
+//         this.active = true;
+//     }
+//     draw(){
+        
+//     }
+// }
 
 function freeOtherObjects(s){
     delete toolbox[0];
