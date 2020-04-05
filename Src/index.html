@@ -12,57 +12,35 @@
 </head>
 <body>
 
-  <ul class="nav nav-tabs">
+<div class="container">
+  <h2>Drawing Board</h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" href="#"><h3>Tools</h3></a>
-      
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
-    
-      <br>
-      <br>
-    
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
+      <a class="nav-link active" data-toggle="tab" href="#Tools">Tools</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="#"><h3>Functions</h3></a>
-      
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
-      <br>
-      <br>
-    
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
+      <a class="nav-link" data-toggle="tab" href="#Functions">Functions</a>
     </li>
-   
+    <li class="nav-item">
+      <button id = "reset" type="button" class="btn btn-outline-primary">Reset</button>
+    </li>
+
   </ul>
 
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="Tools" class="container tab-pane active"><br>
+      <button id = "deselect" type="button" class="btn btn-primary">None</button>
+      <button  id = "pencil" type="button" class="btn btn-outline-primary">Pencil</button>
+      <button id = "eraser"type="button" class="btn btn-outline-primary">Eraser</button>
+    </div>
+    <div id="Functions" class="container tab-pane fade"><br>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+</div>
 
 <!--
 
