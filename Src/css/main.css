@@ -1,0 +1,32 @@
+
+p,
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+
+
+.btn.btn-primary{
+
+	height:40px;
+   width:40px;
+   font-size : 20px
+
+}
+
+textarea {
+        resize: none;
+        height:40px;
+        width:80px
+        margin-top:10px;
+
+    }
+
+.colorbox{
+	 height:40px;
+   width:40px
+}
+
+body{
+	background: rgb(240,256,256);
+}
