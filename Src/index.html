@@ -5,32 +5,93 @@
 	<!-- Links and Connections -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet" />
+
     
     <meta charset="utf-8" />
     <!-- Links End -->
 </head>
 <body>
+
+<div class="container">
+  <h2>Drawing Board</h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#Tools">Tools</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Functions">Functions</a>
+    </li>
+    <li class="nav-item">
+      <button id = "reset" type="button" class="btn btn-outline-primary">Reset</button>
+    </li>
+    <li class="nav-item">
+      <button id = "download" type="button" class="btn btn-outline-primary">Download</button>
+    </li>
+    <li class="nav-item">
+      <button id = "g" type="button" class="btn btn-outline-primary"><a href="https://github.com/JacobAzzy/DrawingBoard"> Github</a></button>
+    </li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="Tools" class="container tab-pane active"><br>
+      <button id = "deselect" type="button" class="btn btn-outline-primary">None</button>
+      <button  id = "pencil" type="button" class="btn btn-outline-primary">Pencil</button>
+      <button id = "eraser"type="button" class="btn btn-outline-primary">Eraser</button>
+      <button id = "Paint-Brush"type="button" class="btn btn-outline-primary">Paint-Brush</button>
+      <button id = "Highlighter"type="button" class="btn btn-outline-primary">Highlighter</button>
+      <br>
+      <br>
+     
+    </div>
+    <div id="Functions" class="container tab-pane fade"><br>
+    
+    <svg class="bi bi-arrow-up" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" onclick="StrokeUp()" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z" clip-rule="evenodd"/>
+    </svg>
+
+    <!-- <textarea rows="1" cols="2"></textarea>
+     -->
+     <input id = "inputBox" class = "inputBox" type="text" placeholder="24">
+ 
+
+    <svg class="bi bi-arrow-down" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" onclick="StrokeDown()" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M4.646 9.646a.5.5 0 01.708 0L8 12.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M8 2.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V3a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+    </svg>
+  <!--    <input class="form-control" type="text" placeholder="24"> -->
+      
+      <label for="head"><h4>Background:</h4></label>
+
+      <input class = "colorbox" type="color" id="head" name="head"
+             value="#e66465">
+      
+
+      <label for="head"><h4>Stroke:</h4></label>
+      <input class = "colorbox" type="color" id="body" name="body"
+              value="#f6b73c">
+    <!--  <button class="btn btn-outline-primary" type="button">+</button>
+      <button class="btn btn-outline-primary" type="button">-</button> -->
+
+     
+
+   
+      
+
+    </div>
+  </div>
+</div>
+
+
+
 <!--
-// Connect all Dependecies 
-	- bootstrap 
-	- P5
 
-// (1st Iteration) Base features will include : 
-Workspace 
-	Workspace will include drawing art area
-	Toolbox/toolbar on top left  of the drawing area for user to select tools
-	Functionality box/bar on top left to manipulate/navigate/edit the workspace and selected tool
-	// 
-Toolbar
-	Pencil 
-	Eraser
-Functionality bar
-	Deselecting the tool
-
-
-//p5Canavas
--->
-<!--onclick="pencilPressed() -->
 
 <button id ="pencil" ><p>
     <svg class="bi bi-pencil" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -40,26 +101,40 @@ Functionality bar
 </p></button>
 
 <button id = "eraser"><p>
-    <svg class="bi bi-tablet" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M12 1H4a1 1 0 00-1 1v12a1 1 0 001 1h8a1 1 0 001-1V2a1 1 0 00-1-1zM4 0a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V2a2 2 0 00-2-2H4z" clip-rule="evenodd"/>
-      <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+    <svg class="bi bi-file-break" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M0 10.5a.5.5 0 01.5-.5h15a.5.5 0 010 1H.5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+      <path d="M12 1H4a2 2 0 00-2 2v6h1V3a1 1 0 011-1h8a1 1 0 011 1v6h1V3a2 2 0 00-2-2zm2 11h-1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1H2v1a2 2 0 002 2h8a2 2 0 002-2v-1z"/>
     </svg>
 </p></button>
 
 </br></br>
 
 <button id = "deselect"><p>
+    <svg class="bi bi-x-octagon" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M4.54.146A.5.5 0 014.893 0h6.214a.5.5 0 01.353.146l4.394 4.394a.5.5 0 01.146.353v6.214a.5.5 0 01-.146.353l-4.394 4.394a.5.5 0 01-.353.146H4.893a.5.5 0 01-.353-.146L.146 11.46A.5.5 0 010 11.107V4.893a.5.5 0 01.146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+    </svg>
+</p></button>
+
+<button id = "reset"><p>
     <svg class="bi bi-x-square" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
       <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
       <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
     </svg>
 </p></button>
+ca4
+-->
 
  <script src="Js/toolbar.js"></script>
  <script src="Js/functions.js"></script>
  <script src="Js/main.js"></script>
  <script src="Js/link.js"></script>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
 
