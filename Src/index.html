@@ -6,62 +6,79 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet" />
+
     
     <meta charset="utf-8" />
     <!-- Links End -->
 </head>
 <body>
 
-  <ul class="nav nav-tabs">
+<div class="container">
+  <h2>Drawing Board</h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" href="#"><h3>Tools</h3></a>
-      
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
-    
-      <br>
-      <br>
-    
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
+      <a class="nav-link active" data-toggle="tab" href="#Tools">Tools</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="#"><h3>Functions</h3></a>
-      
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
-      <br>
-      <br>
-    
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <button type="button" class="btn btn-light">Light</button>
+      <a class="nav-link" data-toggle="tab" href="#Functions">Functions</a>
     </li>
-   
+    <li class="nav-item">
+      <button id = "reset" type="button" class="btn btn-outline-primary">Reset</button>
+    </li>
+
   </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="Tools" class="container tab-pane active"><br>
+      <button id = "deselect" type="button" class="btn btn-outline-primary">None</button>
+      <button  id = "pencil" type="button" class="btn btn-outline-primary">Pencil</button>
+      <button id = "eraser"type="button" class="btn btn-outline-primary">Eraser</button>
+      <button id = "Paint-Brush"type="button" class="btn btn-outline-primary">Paint-Brush</button>
+      <br>
+      <br>
+     
+    </div>
+    <div id="Functions" class="container tab-pane fade"><br>
+    
+    <svg class="bi bi-arrow-up" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" onclick="StrokeUp()" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z" clip-rule="evenodd"/>
+    </svg>
+
+    <textarea rows="1" cols="2"></textarea>
+    
+
+    <svg class="bi bi-arrow-down" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" onclick="StrokeDown()" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M4.646 9.646a.5.5 0 01.708 0L8 12.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M8 2.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V3a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+    </svg>
+  <!--    <input class="form-control" type="text" placeholder="24"> -->
+      
+      <label for="head"><h4>Background:</h4></label>
+
+      <input class = "colorbox" type="color" id="head" name="head"
+             value="#e66465">
+      
+
+      <label for="head"><h4>Stroke:</h4></label>
+      <input class = "colorbox" type="color" id="body" name="body"
+              value="#f6b73c">
+    <!--  <button class="btn btn-outline-primary" type="button">+</button>
+      <button class="btn btn-outline-primary" type="button">-</button> -->
+
+     
+
+   
+      
+
+    </div>
+  </div>
+</div>
+
 
 
 <!--
@@ -98,7 +115,7 @@
       <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
     </svg>
 </p></button>
-
+ca4
 -->
 
  <script src="Js/toolbar.js"></script>

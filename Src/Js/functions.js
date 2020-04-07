@@ -18,3 +18,40 @@ function keyPressed() {
   }
   return false; // prevent default
 }
+
+function StrokeUp(){
+currentTool.addStrokeSize();
+
+}
+
+function StrokeDown(){
+  currentTool.reduceStrokeSize();
+}
+
+
+
+function backgroundColorUpdateFirst (){
+  
+  updatedcolor = backgroundColor.value;
+  background(updatedcolor);
+}
+
+function backgroundColorupdateAll(){
+   updatedcolor = backgroundColor.value;
+   background(updatedcolor);
+}
+
+function strokeColorUpdateFirst(){
+  strokeColorDefault = strokeColor.value;
+
+}
+
+function strokeColorupdateAll(){
+  strokeColorDefault = strokeColor.value;
+
+}
+
+
+
+
+

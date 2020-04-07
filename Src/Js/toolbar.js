@@ -27,10 +27,18 @@ function selectTool(toolName){
     }
     
     else if(toolName=="reset"){
-        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=1084'), auto;";
-        objectReset = new Reset();
-        currentTool = objectReset;
-        freeOtherObjects(objectReset);
+        clear();
+        // document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=1084'), auto;";
+        // objectReset = new Reset();
+        // currentTool = objectReset;
+        // freeOtherObjects(objectReset);
+    }
+    else if(toolName=="paintBrush"){
+        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=72976'), auto;";
+        objectPaintBrush = new PaintBrush();
+        currentTool = objectPaintBrush;
+        freeOtherObjects(objectPaintBrush);
+        
     }
 }
 
@@ -63,8 +71,9 @@ class Pencil extends Tools{
     }
     
     draw(){
-        stroke(pencilColor, pencilColor, pencilColor);
+        stroke(strokeColorDefault);
         super.draw();
+        strokeWeight(2);
     }
 }
 
@@ -74,7 +83,7 @@ class Eraser extends Tools{
         this.active = true;
     }
     draw(){
-        stroke(backgroundColor, backgroundColor, backgroundColor);
+        stroke(updatedcolor);
         super.draw();
        
     }
@@ -92,15 +101,30 @@ class Deselect extends Tools{
     
 }
 
-class Reset extends Tools{
+class PaintBrush extends Tools{
     Constructor(){
         Super();
-        this.active = true;
+        this.active = true
     }
+    
     draw(){
-        clear();
+        stroke(strokeColorDefault);
+        super.draw();
+        strokeWeight(defaultStroke);
+
     }
+
 }
+
+// class Reset extends Tools{
+//     Constructor(){
+//         Super();
+//         this.active = true;
+//     }
+//     draw(){
+        
+//     }
+// }
 
 function freeOtherObjects(s){
     delete toolbox[0];
