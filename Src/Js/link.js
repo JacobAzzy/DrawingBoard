@@ -3,6 +3,8 @@ var eraserVar = document.getElementById('eraser');
 var deselectVar = document.getElementById('deselect');
 var resetVar = document.getElementById('reset');
 var paintBrush = document.getElementById("Paint-Brush");
+var Highlighter = document.getElementById("Highlighter");
+var download = document.getElementById("download"); 
 
 
 pencilVar.addEventListener("click", function(){
@@ -23,6 +25,14 @@ resetVar.addEventListener("click", function(){
 
 paintBrush.addEventListener("click",function(){
 	selectTool('paintBrush');
+})
+
+Highlighter.addEventListener("click",function(){
+	selectTool('Highlighter');
+})
+
+download.addEventListener("click",function(){
+	selectTool('Download');
 })
 
 

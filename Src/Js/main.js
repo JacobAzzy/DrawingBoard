@@ -6,16 +6,18 @@ var objectPencil ;
 var objectEraser ;
 var objectDeselect ;
 var objectPaintBrush;
+var objectHighlighter;
 var currentTool  ;
 let toolbox = [];
-defaultStroke = 5;
+defaultStroke = 6;
+let canvas;
 
 
 
 
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  canvas = createCanvas(window.innerWidth, window.innerHeight);
   background(backgroundColorSetup, backgroundColorSetup, backgroundColorSetup);
   currentTool = new Tools();
   selectTool("pencil");
@@ -28,9 +30,16 @@ function draw() {
   {
     currentTool.draw()
   }
+
+  updateStrokeSizeHTML();
  
 }
 
+function updateStrokeSizeHTML(){
+	document.getElementById('inputBox').placeholder = defaultStroke;
+
+	
+}
 
 
 

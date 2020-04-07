@@ -3,6 +3,13 @@ function setupObjects(){
 
 }
 
+// ToDO:
+// - new cursors for PaintBrush and Highlighter
+// - pencil cannot change colors
+
+
+
+
 function selectTool(toolName){
     if(toolName == "pencil"){
         document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=131115'), auto;";
@@ -28,16 +35,29 @@ function selectTool(toolName){
     
     else if(toolName=="reset"){
         clear();
+        background("#FFFFFF");
+        //redraw();
         // document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=1084'), auto;";
         // objectReset = new Reset();
         // currentTool = objectReset;
         // freeOtherObjects(objectReset);
     }
     else if(toolName=="paintBrush"){
-        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=72976'), auto;";
+        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=67892'), auto;";
         objectPaintBrush = new PaintBrush();
         currentTool = objectPaintBrush;
         freeOtherObjects(objectPaintBrush);
+
+    }
+     else if(toolName=="Highlighter"){
+        document.body.style = "cursor: url('http://www.rw-designer.com/cursor-extern.php?id=11962'), auto;";
+        objectHighlighter = new HighlighterC();
+        currentTool = objectHighlighter;
+        freeOtherObjects(objectPaintBrush);
+        
+    }
+     else if(toolName=="Download"){
+        saveCanvas(canvas, 'myCanvas', 'jpg');
         
     }
 }
@@ -55,11 +75,11 @@ class Tools{
     }
     
     addStrokeSize(){
-        defaultStroke += 3;
+        defaultStroke += 2;
        // circle(mouseX, mouseY, defaultStroke);
     }
     reduceStrokeSize(){
-        defaultStroke -= 3;
+        defaultStroke -= 2;
         //circle(mouseX, mouseY, defaultStroke);
     }
 }
@@ -74,6 +94,9 @@ class Pencil extends Tools{
         stroke(strokeColorDefault);
         super.draw();
         strokeWeight(2);
+        defaultStroke = 6;
+
+
     }
 }
 
@@ -115,16 +138,22 @@ class PaintBrush extends Tools{
     }
 
 }
+class HighlighterC extends Tools{
+    Constructor(){
+        Super();
+        this.active = true
+    }
+    
+    draw(){
+        super.draw();
+        strokeWeight(defaultStroke);
+        stroke(255,255,0,63);
+        strokeCap(PROJECT);
 
-// class Reset extends Tools{
-//     Constructor(){
-//         Super();
-//         this.active = true;
-//     }
-//     draw(){
-        
-//     }
-// }
+    }
+
+}
+
 
 function freeOtherObjects(s){
     delete toolbox[0];
